@@ -329,7 +329,7 @@ export default function Home() {
       <animated.div ref={ref5} style={StartAnimation}>
         <div ref={FAQsRef} className="flex flex-col justify-center items-center mb-10">
               <p className='bg-[#2B2B2C] text-[#888888] rounded-full mt-10 py-1 px-3'>
-                Let's begin 🚀
+                Let&apos;s begin 🚀
               </p>
               <h1 className="text-5xl mx-5 m:m-0 text-center font-medium py-4">
                 What are you waiting for?
