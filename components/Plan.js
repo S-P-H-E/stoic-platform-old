@@ -5,7 +5,7 @@ export default function Plan({price}) {
     const Subscribe = async () => {
         const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
         const { error } = await stripe.redirectToCheckout({
-          mode: 'payment',
+          mode: 'subscription',
           lineItems: [
             { price: 'price_1N9mzjJVAR9FxLkwn1w68A8A', quantity: 1 }, // Replace with your actual product price ID
           ],
