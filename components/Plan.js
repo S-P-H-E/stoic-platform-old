@@ -9,8 +9,8 @@ export default function Plan({price}) {
           lineItems: [
             { price: 'price_1N9mzjJVAR9FxLkwn1w68A8A', quantity: 1 }, // Replace with your actual product price ID
           ],
-          successUrl: 'http://localhost:3000/success', // Replace with your success page URL
-          cancelUrl: 'http://localhost:3000/cancel', // Replace with your cancel page URL
+          successUrl: 'https://stoic-platform.vercel.app/success', // Replace with your success page URL
+          cancelUrl: 'https://stoic-platform.vercel.app/cancel', // Replace with your cancel page URL
         });
     
         if (error) {

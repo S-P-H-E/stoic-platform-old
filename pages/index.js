@@ -277,7 +277,7 @@ export default function Home() {
       <animated.div ref={ref3} style={PricingAnimation}>
         <div ref={pricingRef} className="flex flex-col justify-center items-center">
             <p className='bg-[#2B2B2C] text-[#888888] rounded-full mt-10 py-1 px-3'>
-              Pricing and Plans 💰
+              Pricing💰
             </p>
             <h1 className="text-5xl mx-5 m:m-0 text-center font-medium py-4">
               Discover what we have to offer
