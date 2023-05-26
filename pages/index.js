@@ -4,13 +4,19 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { FiMenu } from 'react-icons/fi'
 import { CgClose } from 'react-icons/cg'
-import Hero from '@/public/images/cover.png'
 import Image from "next/image";
 import Feature from "@/components/Feature";
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import Review from "@/components/Review";
 import Plan from "@/components/Plan";
+
+import Hero from '@/public/images/cover.png'
+
+import Profile1 from "@/public/images/profiles/andrew.png"
+import Profile2 from "@/public/images/profiles/tristan.png"
+import Profile3 from "@/public/images/profiles/andrew2.png"
+import Profile4 from "@/public/images/profiles/tristan2.png"
 
 export default function Home() {
   const homeRef = useRef(null);
@@ -244,22 +250,22 @@ export default function Home() {
           </h1>
           <div className="my-12 md:m-12 grid gap-3 grid-cols-1 md:grid-cols-2">
             <Review 
-              profile={"https://framerusercontent.com/images/bl39AdGKIqJR3rmOzhkPvTf65vQ.png"}
+              profile={Profile1}
               heading={"Amazing Service"}
               review={"This software is so amazing I love it very much. you have to buy."}
             />
             <Review 
-              profile={"https://framerusercontent.com/images/SK28bkE1orcey0vf79oQZPz0yA.png"}
+              profile={Profile2}
               heading={"Love the software"}
               review={"It's so easy to use."}
             />
             <Review 
-              profile={"https://framerusercontent.com/images/6uYgdEC1jGe6urbMtA9d0dgg.png"}
+              profile={Profile3}
               heading={"My videos blew up"}
               review={"The founders have helped me get millions of views."}
             />
             <Review 
-              profile={"https://framerusercontent.com/images/kxNdSiluF7hrK3n2KLRcdCNhTU.png"}
+              profile={Profile4}
               heading={"Mind blowing software"}
               review={"It's crazy how much the software can do and how much time it can save."}
             />
