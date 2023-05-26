@@ -12,3 +12,25 @@ body{
   -webkit-mask-image: linear-gradient( white 50%, white 50%);
   mask-image: linear-gradient(white 50%, white 50%);
 }
+
+.icon {
+  transition: transform 0.3s ease-in-out;
+}
+
+.icon.down {
+  transform: rotate(0deg);
+}
+
+.icon.up {
+  transform: rotate(180deg);
+}
+
+.answer-container {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.answer-container.expanded {
+  max-height: 200px; /* Set a fixed max height for the answer container */
+}
