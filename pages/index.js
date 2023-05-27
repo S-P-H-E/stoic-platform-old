@@ -6,7 +6,7 @@ import { FiMenu } from 'react-icons/fi'
 import { CgClose } from 'react-icons/cg'
 import Image from "next/image";
 import Feature from "@/components/Feature";
-import { useSpring, animated, useTransition } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import Review from "@/components/Review";
 import Plan from "@/components/Plan";
@@ -345,7 +345,7 @@ export default function Home() {
       <div className="border-t border-[#282828] px-16 py-10 md:h-[250px] flex flex-col md:flex-row justify-between">
         <div className="h-full flex flex-col justify-between">
           <div className="flex justify-center md:justify-start items-center gap-3">
-            <Image src={Logo} className="w-[20px]"/>
+            <Image src={Logo} alt="stoic" className="w-[20px]"/>
             <h1 className="text-3xl">S T O I C</h1>
           </div>
           <p className="text-[#888888] hidden md:flex">2023 © Stoic, All rights reserved.</p>

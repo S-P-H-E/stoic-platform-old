@@ -21,7 +21,7 @@ export default function Cancel() {
                     <Image src={Discord} className="w-[140px] h-fit"/>
                     <div className="flex flex-col gap-2">
                         <h1 className="text-3xl font-medium text-center md:text-start">Join Our Supportive Discord Community!</h1>
-                        <p className="text-[#888888]">Can't subscribe? No worries! Join our Discord server for support and connection. Engage with like-minded individuals, discuss topics, and be part of our vibrant community. Join us now!</p>
+                        <p className="text-[#888888]">Can&apos;t subscribe? No worries! Join our Discord server for support and connection. Engage with like-minded individuals, discuss topics, and be part of our vibrant community. Join us now!</p>
                         <div className="flex md:justify-end gap-2 my-5 md:m-0">
                             <button className="bg-[#5764F2] text-white py-3 px-10 rounded-xl" onClick={() => {event.preventDefault();window.open('https://discord.gg/pwERKjwDG3', "_blank");}}>Join now</button>
                             <button className="border border-[#484848] text-white py-3 px-10 rounded-xl flex justify-center items-center gap-2" onClick={() => router.push("/")}>

@@ -2,10 +2,12 @@ import Head from "next/head";
 import React, { useEffect } from 'react';
 import Confetti from 'react-confetti';
 import { BiArrowBack } from "react-icons/bi"
-import Discord from "@/public/images/discord.png"
-import Image from "next/image";
+import { useRouter } from 'next/router';
+import { useSpring, animated } from 'react-spring';
 
 export default function Success() {
+    const router = useRouter();
+
     useEffect(() => {
         const handleResize = () => {
             // Update the dimensions when the window is resized
@@ -37,6 +39,12 @@ export default function Success() {
         // Code to start the confetti animation
     };
 
+    const PopUpAnimation = useSpring({
+        from: { opacity: 0, transform: 'scale(0)' },
+        to: { opacity: 1, transform: 'scale(1)' },
+        delay: 500,
+    });
+
     return (
         <>
             <Head>
@@ -47,11 +55,11 @@ export default function Success() {
             </Head>
 
             <div className="flex justify-center items-center h-screen">
-                <div className="bg-[#2B2B2C] p-6 w-[800px] rounded-2xl flex gap-6 justify-center items-center">
+                <animated.div style={PopUpAnimation} className="bg-[#2B2B2C] p-6 m-5 w-[800px] rounded-2xl flex gap-6 justify-center items-center">
                     <div className="flex flex-col gap-2 text-center">
                         <h1 className="text-6xl font-medium">Welcome to the family!</h1>
-                        <p className="text-[#888888]">Can't subscribe? No worries! Join our Discord server for support and connection. Engage with like-minded individuals, discuss topics, and be part of our vibrant community. Join us now!</p>
-                        <div className="flex justify-end gap-2">
+                        <p className="text-[#888888]">Congratulations on making the right decision! You are now part of our exclusive community. We are thrilled to have you on board and look forward to supporting you on your journey. Get ready for exciting opportunities, valuable resources, and a supportive network of like-minded individuals. To access the exclusive premium section, please join our Discord server using the link below. Don&apos;t forget to contact us in the support <mark className="text-white bg-[#414675] p-1 rounded-md cursor-pointer" onClick={() => {event.preventDefault();window.open('https://discord.com/channels/1084466059903500369/1111904441914896415', "_blank");}}> #❔│ support</mark> section of our Discord server with your proof of payment, and we&apos;ll grant you access to the premium content. We can&apos;t wait to see you inside. Welcome to our family!</p>
+                        <div className="flex justify-center gap-2 my-3">
                             <button className="bg-[#5764F2] text-white py-3 px-10 rounded-xl" onClick={() => {event.preventDefault();window.open('https://discord.gg/pwERKjwDG3', "_blank");}}>Join now</button>
                             <button className="border border-[#484848] text-white py-3 px-10 rounded-xl flex justify-center items-center gap-2" onClick={() => router.push("/")}>
                                 <BiArrowBack />
@@ -59,7 +67,7 @@ export default function Success() {
                             </button>
                         </div>
                     </div>
-                </div>
+                </animated.div>
                 <Confetti width={confettiDimensions.width} height={confettiDimensions.height} />
             </div>
         </>
