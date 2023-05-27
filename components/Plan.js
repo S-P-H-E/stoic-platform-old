@@ -13,6 +13,8 @@ export default function Plan({price}) {
           ],
           successUrl: 'https://stoic-platform.vercel.app/success-premium',
           cancelUrl: 'https://stoic-platform.vercel.app/cancel',
+
+          coupon: 'promo_1NCM7GJVAR9FxLkwbU6qO9zQ'
         });
     
         if (error) {
