@@ -47,7 +47,7 @@ const [ref, inView] = useInView({
 
 const QuestionAnimation = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? 'scale(1)' : 'scale(0)',
+    transform: inView ? 'scaleY(1)' : 'scaleY(0)',
 });  
 
   return (

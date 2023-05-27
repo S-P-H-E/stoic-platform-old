@@ -52,6 +52,11 @@ export default function Plan({price}) {
 
                 <div className="flex justify-center items-center gap-1 my-2">
                     <BsCheckLg size={25}/>
+                    <p className="text-[#858585] text-xl">Monetize your audience</p>
+                </div>
+
+                <div className="flex justify-center items-center gap-1 my-2">
+                    <BsCheckLg size={25}/>
                     <p className="text-[#858585] text-xl">High-quality lifestyle clips</p>
                 </div>
 

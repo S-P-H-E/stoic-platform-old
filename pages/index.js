@@ -13,6 +13,7 @@ import Plan from "@/components/Plan";
 import FAQs from "@/components/FAQs";
 
 import Hero from '@/public/images/cover.png'
+import Logo from '@/public/images/logo.png'
 
 import Profile1 from "@/public/images/profiles/andrew.png"
 import Profile2 from "@/public/images/profiles/tristan.png"
@@ -60,7 +61,7 @@ export default function Home() {
   };
 
   const mobileMenuAnimation = useSpring({
-    transform: isMobileMenuOpen ? 'translateY(0)' : 'translateY(-100%)',
+    transform: isMobileMenuOpen ? 'opacity(1)' : 'opacity(0)',
   });
 
   //Animation
@@ -143,7 +144,7 @@ export default function Home() {
 
   const StartAnimation = useSpring({
     opacity: inView5 ? 1 : 0,
-    transform: inView5 ? 'translateY(0)' : 'translateY(300px)',
+    transform: inView5 ? 'scale(1)' : 'scale(0)',
   });  
 
   return (
@@ -173,7 +174,7 @@ export default function Home() {
             <button className="bg-white text-[black] py-2 px-4 rounded-md" onClick={scrollToPricing}>Get Started</button>
           </div>
           { isMobileMenuOpen ?
-            <CgClose size={25} className="cursor-pointer flex md:hidden" onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 1000)}/>
+            <CgClose size={25} className="cursor-pointer flex md:hidden" onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 10)}/>
             :
             <FiMenu size={25} className="cursor-pointer flex md:hidden" onClick={() => setIsMobileMenuOpen(true)}/>
           }
@@ -327,7 +328,7 @@ export default function Home() {
 
       {/* Start */}
       <animated.div ref={ref5} style={StartAnimation}>
-        <div ref={FAQsRef} className="flex flex-col justify-center items-center mb-10">
+        <div className="flex flex-col justify-center items-center mb-10">
               <p className='bg-[#2B2B2C] text-[#888888] rounded-full mt-10 py-1 px-3'>
                 Let&apos;s begin 🚀
               </p>
@@ -341,13 +342,16 @@ export default function Home() {
       </animated.div>
 
       {/* Footer */}
-      <div className="border-t border-[#282828] px-16 py-10 h-[250px] flex justify-between">
+      <div className="border-t border-[#282828] px-16 py-10 md:h-[250px] flex flex-col md:flex-row justify-between">
         <div className="h-full flex flex-col justify-between">
-          <h1 className="text-3xl">S T O I C</h1>
-          <p className="text-[#888888]">2023 © Stoic, All rights reserved.</p>
+          <div className="flex justify-center md:justify-start items-center gap-3">
+            <Image src={Logo} className="w-[20px]"/>
+            <h1 className="text-3xl">S T O I C</h1>
+          </div>
+          <p className="text-[#888888] hidden md:flex">2023 © Stoic, All rights reserved.</p>
         </div>
-        <div className="flex gap-10">
-          <div className="flex flex-col justify-start items-start gap-2">
+        <div className="flex justify-between items-center md:items-start gap-10 my-7 md:m-0">
+          <div className="hidden md:flex flex-col justify-start items-start gap-2">
             <h1>Navigation</h1>
             <button className="text-[#949494] hover:underline" onClick={scrollToFeatures}>Features</button>
             {/* <button className="text-[#949494] hover:underline" onClick={scrollToTestimonial}>Testimonials</button> */}
@@ -369,6 +373,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
+        <p className="text-[#888888] w-full flex justify-center items-center md:hidden my-4">2023 © Stoic, All rights reserved.</p>
       </div>
     </>
   )
