@@ -151,9 +151,13 @@ export default function Home() {
     <>
       <Head>
         <title>S T O I C</title>
-        <meta name="description" content="Stoic Education Platform" />
+        {/* <meta name="description" content="Stoic Education Platform" /> */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:title" content="The Stoic Growth Academy" />
+        <meta property="og:description" content="Unleash your viral potential" />
+        <meta property="og:image" content="https://stoic-platform.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcover.18342cb9.png&w=1920&q=75" />
+        <meta property="og:type" content="website" />
       </Head>
 
       {/* Navbar */}
