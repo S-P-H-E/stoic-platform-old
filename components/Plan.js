@@ -39,15 +39,10 @@ export default function Plan({price}) {
                 <p className="text-[#858585]">/Month</p>
             </div>
             <div className="my-2 flex flex-col justify-start items-start">
-                
-                <div className="flex justify-center items-center gap-1 my-2">
-                    <BsCheckLg size={25}/>
-                    <p className="text-[#858585] text-xl">How to start from $0</p>
-                </div>
 
                 <div className="flex justify-center items-center gap-1 my-2">
                     <BsCheckLg size={25}/>
-                    <p className="text-[#858585] text-xl">Grow your audience</p>
+                    <p className="text-[#858585] text-xl">Grow your account</p>
                 </div>
 
                 <div className="flex justify-center items-center gap-1 my-2">
