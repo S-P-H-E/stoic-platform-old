@@ -11,8 +11,8 @@ export default function Plan({price}) {
           lineItems: [
             { price: 'price_1N9mzjJVAR9FxLkwn1w68A8A', quantity: 1 }, // Replace with your actual product price ID
           ],
-          successUrl: 'https://stoic-platform.vercel.app/success-premium',
-          cancelUrl: 'https://stoic-platform.vercel.app/cancel',
+          successUrl: 'https://stoiccord.com/success-premium',
+          cancelUrl: 'https://stoiccord.com/cancel',
         });
     
         if (error) {
@@ -70,7 +70,7 @@ export default function Plan({price}) {
                     <p className="text-[#858585] text-xl">Winning Hooks</p>
                 </div>
             </div>
-            <button className="bg-white text-[black] w-full mt-6 py-3 px-10 rounded-xl flex justify-center items-center gap-1" onClick={() => {event.preventDefault();window.open('https://buy.stripe.com/9AQeXG30y9A31VeeUU', "_blank");}}>
+            <button className="bg-white text-[black] w-full mt-6 py-3 px-10 rounded-xl flex justify-center items-center gap-1" onClick={Subscribe}>
                 <p className="font-medium uppercase">Join now</p>
                 {/* <p className="font-extralight">€{price}/month</p> */}
             </button>

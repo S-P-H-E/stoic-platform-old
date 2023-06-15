@@ -29,6 +29,8 @@ export default function Home() {
   const FAQsRef = useRef(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const [name, setName] = useState("");
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -307,10 +309,11 @@ export default function Home() {
             <h1 className="text-5xl mx-5 m:m-0 text-center font-medium py-4">
               Discover what we have to offer
             </h1>
-            <div className="flex justify-center items-center mx-6 my-6 md:m-12">
+            <div className="flex flex-wrap justify-center items-center gap-3 mx-6 my-6 md:m-12">
               <Plan 
                 price={"29.99"}
               />
+              {/* <iframe src="https://discord.com/widget?id=1084466059903500369&theme=dark" width="330" height="450" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe> */}
             </div>
         </div>
       </animated.div>
