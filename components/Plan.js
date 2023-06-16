@@ -9,7 +9,7 @@ export default function Plan({price}) {
         const { error } = await stripe.redirectToCheckout({
           mode: 'subscription',
           lineItems: [
-            { price: 'price_1NJOWxJVAR9FxLkwfaACIhll', quantity: 1 }, // Replace with your actual product price ID
+            { price: 'price_1N9mzjJVAR9FxLkwn1w68A8A', quantity: 1 }, // Replace with your actual product price ID
           ],
           successUrl: 'https://stoiccord.com/success-premium',
           cancelUrl: 'https://stoiccord.com/cancel',
