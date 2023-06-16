@@ -1,5 +1,9 @@
-import { Readable } from 'stream';
+import { buffer } from 'micro';
 import Stripe from 'stripe';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: '2020-08-27',
+});
 
 export const config = {
   api: {
@@ -7,49 +11,30 @@ export const config = {
   },
 };
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
 const webhookHandler = async (req, res) => {
-  const buf = await new Promise((resolve, reject) => {
-    const chunks = [];
-    req
-      .on('data', (chunk) => chunks.push(chunk))
-      .on('end', () => resolve(Buffer.concat(chunks)))
-      .on('error', reject);
-  });
+  if (req.method === 'POST') {
+    const buf = await buffer(req);
+    const sig = req.headers['stripe-signature'];
 
-  const payload = buf.toString();
-  const sig = req.headers['stripe-signature'];
+    let event;
 
-  let event;
+    try {
+      event = stripe.webhooks.constructEvent(buf, sig, process.env.STRIPE_WEBHOOK_SECRET);
+    } catch (err) {
+      console.log(`Webhook error: ${err.message}`);
+      return res.status(400).send(`Webhook Error: ${err.message}`);
+    }
 
-  try {
-    event = stripe.webhooks.constructEvent(payload, sig, 'we_1NJfQuJVAR9FxLkwjxW7leGD');
-  } catch (err) {
-    console.log('Webhook signature verification failed.');
-    return res.status(400).send(`Webhook Error: ${err.message}`);
+    if (event.type === 'invoice.created') {
+      const invoice = event.data.object;
+      // Handle the created invoice event
+    }
+
+    res.json({ received: true });
+  } else {
+    res.setHeader('Allow', 'POST');
+    res.status(405).end('Method Not Allowed');
   }
-
-  // Handle the event
-switch (event.type) {
-  case 'payment_intent.succeeded':
-    // Handle payment_intent.succeeded event
-    console.log('Payment succeeded:', event.data.object);
-    break;
-  case 'payment_intent.payment_failed':
-    // Handle payment_intent.payment_failed event
-    console.log('Payment failed:', event.data.object);
-    break;
-  case 'invoice.created':
-    // Handle invoice.created event
-    console.log('Invoice created:', event.data.object);
-    break;
-  // Add other event handlers as needed
-  default:
-    console.log(`Unhandled event type: ${event.type}`);
-}
-
-  res.status(200).json({ received: true });
 };
 
 export default webhookHandler;
