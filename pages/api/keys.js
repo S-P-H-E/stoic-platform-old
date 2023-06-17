@@ -1,10 +1,9 @@
 export default function handler(req, res) {
-    if (req.method === 'GET') {
+  if (req.method === 'GET') {
       res.status(200).json({
-        publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
-      });
-    } else {
+          publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+      })
+  } else {
       res.status(405).end('Method Not Allowed');
-    }
   }
-  
+}
