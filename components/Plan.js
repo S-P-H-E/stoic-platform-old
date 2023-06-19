@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 
 export default function Plan({price}) {
     const Subscribe = async () => {
-        const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+        const stripe = await loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
         const { error } = await stripe.redirectToCheckout({
           mode: 'subscription',
           lineItems: [

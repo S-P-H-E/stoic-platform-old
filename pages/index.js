@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useRef } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { FiMenu } from 'react-icons/fi'
@@ -21,7 +20,24 @@ import Profile3 from "@/public/images/profiles/andrew2.png"
 import Profile4 from "@/public/images/profiles/tristan2.png"
 import Link from "next/link";
 
+//Stripe
+import { loadStripe } from '@stripe/stripe-js';
+
 export default function Home() {
+  useEffect(() => {
+    fetch("/api/keys", {
+      method: "GET",
+      headers: {'Content-Type': 'application/json'},
+    })
+
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    })
+  }, []);
+
+
+
   const homeRef = useRef(null);
   const featuresRef = useRef(null);
   const testimonialRef = useRef(null);
