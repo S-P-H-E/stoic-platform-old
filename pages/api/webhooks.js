@@ -1,33 +1,34 @@
-import { buffer } from 'micro';
-import Cors from 'micro-cors';
-import stripe from 'stripe';
+import Stripe from 'stripe';
 
-const webhookHandler = async (req, res) => {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const buf = await buffer(req);
-      const secret = process.env.STRIPE_WEBHOOK_SECRET; // Your webhook signing secret
-
-      // Verify the request signature
-      const signature = req.headers['stripe-signature'];
-      const event = stripe.webhooks.constructEvent(buf.toString(), signature, secret);
-
-      // Handle the event
-      // Your logic to process the event goes here
-
-      res.status(200).send('Webhook received');
-    } catch (error) {
-      console.error('Error processing webhook:', error);
-      res.status(400).send('Webhook error');
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items: [
+          {
+            price_data: {
+              currency: 'usd',
+              product_data: {
+                name: 'T-shirt',
+              },
+              unit_amount: 2000,
+            },
+            quantity: 1,
+          },
+        ],
+        mode: 'payment',
+        success_url: `${req.headers.origin}/success`,
+        cancel_url: `${req.headers.origin}/cancel`,
+      });
+      res.status(200).json({ id: session.id });
+    } catch (err) {
+      res.status(500).json({ statusCode: 500, message: err.message });
     }
   } else {
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method Not Allowed');
   }
-};
-
-const cors = Cors({
-  allowMethods: ['POST'],
-});
-
-export default cors(webhookHandler);
+}

@@ -23,16 +23,22 @@ export default function Plan({price}) {
         const { error } = await stripe.redirectToCheckout({
           mode: 'subscription',
           lineItems: [
-            { price: 'price_1N9mzjJVAR9FxLkwn1w68A8A', quantity: 1 }, // Replace with your actual product price ID
+            {
+              price: 'price_1NRZkyIByee8cu09HFtbMxx5',
+              quantity: 1,
+              metadata: {
+                client_reference_id: refValue,
+              },
+            },
           ],
-          successUrl: 'https://stoiccord.com/success-premium',
+          successUrl: `https://stoiccord.com/success?ref=${refValue}`,
           cancelUrl: 'https://stoiccord.com/cancel',
         });
-    
+      
         if (error) {
           console.error(error);
         }
-      };
+      };      
 
     const [ref, inView] = useInView({
         triggerOnce: true, // Animation triggers only once when entering the viewport
