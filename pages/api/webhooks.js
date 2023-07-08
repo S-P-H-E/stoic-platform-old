@@ -5,7 +5,7 @@ import Stripe from 'stripe';
 const webhookSigningSecret = process.env.STRIPE_WEBHOOK_SIGNING_SECRET;
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   // Set your preferred Stripe API version
-  apiVersion: '2020-08-27',
+  apiVersion: '2022-11-15',
 });
 
 const webhookHandler = async (req, res) => {
@@ -28,12 +28,10 @@ const webhookHandler = async (req, res) => {
     }
 
     // Handle the event based on its type
-    if (event.type === 'payment_intent.created') {
-      // Handle payment intent created event
-      console.log('Payment Intent created:', event.data.object);
-    } else if (event.type === 'payment_intent.succeeded') {
-      // Handle payment intent succeeded event
-      console.log('Payment Intent succeeded:', event.data.object);
+    if (event.type === 'checkout.session.completed') {
+      // Handle checkout.session.completed event
+      console.log('Checkout session completed:', event.data.object);
+      // Perform any necessary actions or trigger desired functionality
     }
 
     // Return a 200 response to acknowledge receipt of the event

@@ -1,9 +1,23 @@
+import React, { useState, useRef, useEffect } from "react";
 import { BsCheckLg } from "react-icons/bs"
 import { loadStripe } from '@stripe/stripe-js';
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 
 export default function Plan({price}) {
+    const [refValue, setRefValue] = useState('');
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        const params = Object.fromEntries(urlSearchParams.entries());
+        const ref = params.ref;
+        if (ref) {
+            setRefValue(ref);
+        }
+        }
+    }, []);
+
     const Subscribe = async () => {
         const stripe = await loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
         const { error } = await stripe.redirectToCheckout({
@@ -70,7 +84,7 @@ export default function Plan({price}) {
                     <p className="text-[#858585] text-xl">Winning Hooks</p>
                 </div>
             </div>
-            <button className="bg-white text-[black] w-full mt-6 py-3 px-10 rounded-xl flex justify-center items-center gap-1" onClick={() => {event.preventDefault();window.open('https://buy.stripe.com/9AQeXG30y9A31VeeUU', "_blank");}}>
+            <button className="bg-white text-[black] w-full mt-6 py-3 px-10 rounded-xl flex justify-center items-center gap-1" onClick={() => {event.preventDefault();window.open(`https://buy.stripe.com/test_4gw02qc5f3T8eIgdQQ?client_reference_id=${refValue}`, "_blank");}}>
                 <p className="font-medium uppercase">Join now</p>
                 {/* <p className="font-extralight">€{price}/month</p> */}
             </button>
