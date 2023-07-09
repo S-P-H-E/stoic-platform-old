@@ -11,7 +11,7 @@ import Five from '@/public/images/cover/05.png';
 export default function Cover() {
   return (
     <>
-        <div className='flex flex-col w-[700px]'>
+        <div className='flex flex-col md:w-[950px]'>
             <Tilt>
                 <Image src={Five} className="" alt="cover" />
             </Tilt>
