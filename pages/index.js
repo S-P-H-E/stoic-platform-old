@@ -22,6 +22,7 @@ import Link from "next/link";
 
 //Stripe
 import { loadStripe } from '@stripe/stripe-js';
+import Cover from "@/components/Cover";
 
 export default function Home() {
   useEffect(() => {
@@ -233,7 +234,7 @@ export default function Home() {
         </div>
         <animated.button style={HeroButtonAnimation} className="bg-white text-[black] py-3 px-10 rounded-xl" onClick={scrollToPricing}>Get Started</animated.button>
         <animated.div style={HeroImageAnimation} className={"my-7 md:m-7"}>
-          <Image src={Hero} className="scale-90 md:scale-100 lg:h-[600px] w-fit rounded-xl" alt="cover"/>
+          <Cover />
         </animated.div>
       </animated.div>
 
