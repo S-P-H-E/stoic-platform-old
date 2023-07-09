@@ -11,18 +11,18 @@ import Five from '@/public/images/cover/05.png';
 export default function Cover() {
   return (
     <>
-        <div className='flex flex-col md:w-[950px]'>
+        <div className='flex flex-col md:w-[950px] gap-4 p-4 md:p-0'>
             <Tilt>
-                <Image src={Five} className="" alt="cover" />
+                <Image src={Five} className="rounded-2xl" alt="cover" />
             </Tilt>
-            <div className='flex'>
+            <div className='flex gap-4'>
                 <Tilt>
                     <Image src={One}/>
                 </Tilt>
                 <Tilt>
                     <Image src={Two}/>
                 </Tilt>
-                <div>
+                <div className='flex flex-col gap-4'>
                     <Tilt>
                         <Image src={Three}/>
                     </Tilt>
