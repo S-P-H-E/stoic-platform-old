@@ -12,21 +12,25 @@ export default function Cover() {
   return (
     <>
         <div className='flex flex-col md:w-[950px] gap-4 p-4 md:p-0'>
-            <Tilt className='z-10 shadow-2xl shadow-black'>
+            <Tilt glareEnable={true} glareMaxOpacity={0.2} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="25px" className='z-10 rounded-[1.5rem] transition-all hover:shadow-2xl hover:shadow-black'>
                 <Image src={Five} className="rounded-2xl" alt="cover" />
             </Tilt>
             <div className='flex gap-4'>
-                <Tilt>
-                    <Image src={One}/>
-                </Tilt>
-                <Tilt>
-                    <Image src={Two}/>
-                </Tilt>
+                <div>
+                    <Tilt glareEnable={true} glareMaxOpacity={0.2} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="15px">
+                        <Image src={One}/>
+                    </Tilt>
+                </div>
+                <div>
+                    <Tilt glareEnable={true} glareMaxOpacity={0.2} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="15px">
+                        <Image src={Two}/>
+                    </Tilt>
+                </div>
                 <div className='flex flex-col gap-4'>
-                    <Tilt>
+                    <Tilt glareEnable={true} glareMaxOpacity={0.2} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="15px">
                         <Image src={Three}/>
                     </Tilt>
-                    <Tilt>
+                    <Tilt glareEnable={true} glareMaxOpacity={0.2} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="15px">
                         <Image src={Four}/>
                     </Tilt>
                 </div>
