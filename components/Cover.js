@@ -12,7 +12,7 @@ export default function Cover() {
   return (
     <>
         <div className='flex flex-col md:w-[950px] gap-4 p-4 md:p-0'>
-            <Tilt glareEnable={true} glareMaxOpacity={0.2} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="25px" className='z-10 rounded-[1.5rem] transition-all hover:shadow-2xl hover:shadow-black'>
+            <Tilt glareEnable={true} glareMaxOpacity={0.2} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="25px" className='z-10 rounded-[1.5rem] transition-all md:hover:shadow-2xl md:hover:shadow-black'>
                 <Image src={Five} className="rounded-2xl" alt="cover" />
             </Tilt>
             <div className='flex gap-4'>

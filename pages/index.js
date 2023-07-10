@@ -7,22 +7,12 @@ import Image from "next/image";
 import Feature from "@/components/Feature";
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
-import Review from "@/components/Review";
 import Plan from "@/components/Plan";
 import FAQs from "@/components/FAQs";
-
-import Hero from '@/public/images/cover.png'
 import Logo from '@/public/images/logo.png'
-
-import Profile1 from "@/public/images/profiles/andrew.png"
-import Profile2 from "@/public/images/profiles/tristan.png"
-import Profile3 from "@/public/images/profiles/andrew2.png"
-import Profile4 from "@/public/images/profiles/tristan2.png"
 import Link from "next/link";
-
-//Stripe
-import { loadStripe } from '@stripe/stripe-js';
 import Cover from "@/components/Cover";
+import { BsArrowRightShort } from 'react-icons/bs'
 
 export default function Home() {
   useEffect(() => {
@@ -178,7 +168,7 @@ export default function Home() {
         <meta property="og:image" content="https://stoic-platform.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcover.18342cb9.png&w=1920&q=75" />
         <meta property="og:type" content="website" />
       </Head>
-
+      
       {/* Navbar */}
       <animated.div style={NavBarAnimation} className="fixed w-full border-b border-[#282828] z-10">
         <div className="text-white bg-[#161616] h-[80px] px-[40px] flex justify-between items-center w-full">
@@ -217,9 +207,11 @@ export default function Home() {
       {/* Home */}
       <animated.div ref={homeRef} style={HeroAnimation} className="pt-28 text-center flex flex-col justify-center items-center">
         <div className="mask">
-          <animated.p style={HeroMessageAnimation} className='bg-[#2B2B2C] text-[#888888] rounded-full mt-10 py-1 px-3'>
-            Unlock Viral Potential Today
-          </animated.p>
+          <animated.div style={HeroMessageAnimation} className='bg-[#2B2B2C] text-[#888888] rounded-full mt-10 py-1 px-1 flex justify-center items-center border border-transparent transition-all hover:border-[#585858] cursor-pointer' onClick={() => {event.preventDefault();window.open('https://app.stoiccord.com', "_blank");}}>
+            <p className="bg-[#585858] text-[#c4c4c4] px-2 rounded-full m-1 shadow">New!</p>
+            <p>Try out our new Affiliate System!</p>
+            <BsArrowRightShort className="mx-1"/>
+          </animated.div>
         </div>
         <div className="mask">
           <animated.h1 style={HeroTitleAnimation} className="text-6xl md:text-8xl font-medium py-4">
