@@ -12,7 +12,7 @@ export default function Cover() {
   return (
     <>
         <div className='flex flex-col md:w-[950px] gap-4 p-4 md:p-0'>
-            <Tilt>
+            <Tilt className='z-10 shadow-2xl shadow-black'>
                 <Image src={Five} className="rounded-2xl" alt="cover" />
             </Tilt>
             <div className='flex gap-4'>
