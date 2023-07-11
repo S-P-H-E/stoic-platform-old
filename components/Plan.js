@@ -90,7 +90,7 @@ export default function Plan({price}) {
                     <p className="text-[#858585] text-xl">Winning Hooks</p>
                 </div>
             </div>
-            <button className="bg-white text-[black] w-full mt-6 py-3 px-10 rounded-xl flex justify-center items-center gap-1" onClick={() => {event.preventDefault();window.open(`https://buy.stripe.com/9AQeXG30y9A31VeeUU?client_reference_id=${refValue}`, "_blank");}}>
+            <button className="join-now w-full" onClick={() => {event.preventDefault();window.open(`https://buy.stripe.com/9AQeXG30y9A31VeeUU?client_reference_id=${refValue}`, "_blank");}}>
                 <p className="font-medium uppercase">Join now</p>
                 {/* <p className="font-extralight">€{price}/month</p> */}
             </button>
