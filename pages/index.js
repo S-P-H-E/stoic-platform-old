@@ -170,7 +170,7 @@ export default function Home() {
         <meta property="og:description" content="Unleash your viral potential" />
         <meta property="og:image" content="https://i.ibb.co/SPJ5Fvz/stoiccord-preview.png" />
 
-        <meta property="twitter:card" content="website" />
+        <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://stoiccord.com" />
         <meta property="twitter:title" content="S T O I C"/>
         <meta property="twitter:description" content="Unleash your viral potential" />
