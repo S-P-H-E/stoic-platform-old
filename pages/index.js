@@ -215,9 +215,9 @@ export default function Home() {
       {/* Home */}
       <animated.div ref={homeRef} style={HeroAnimation} className="pt-28 text-center flex flex-col justify-center items-center">
         <div className="mask">
-          <animated.div style={HeroMessageAnimation} className='bg-[#2B2B2C] text-[#888888] rounded-full mt-10 py-1 px-1 flex justify-center items-center border border-transparent transition-all hover:border-[#585858] cursor-pointer' onClick={() => {event.preventDefault();window.open('https://app.stoiccord.com', "_blank");}}>
-            <p className="bg-[#585858] text-[#c4c4c4] px-2 rounded-full m-1 shadow">New!</p>
-            <p>Try out our new Affiliate System!</p>
+          <animated.div style={HeroMessageAnimation} className='bg-[#2B2B2C] text-[#888888] rounded-full mt-10 py-1 px-1 flex justify-center items-center border border-transparent transition-all hover:border-[#585858] cursor-pointer' onClick={() => {event.preventDefault();window.open('https://discord.gg/stoiccord', "_blank");}}>
+            <p className="bg-[#585858] text-[#c4c4c4] px-2 rounded-full m-1 shadow">Free!</p>
+            <p>Join our Discord server</p>
             <BsArrowRightShort className="mx-1"/>
           </animated.div>
         </div>
